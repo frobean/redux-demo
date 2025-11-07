@@ -171,12 +171,14 @@ export const selectTodosLoading = (state) => state.todos.loading;
 // Memoized selector - only recalculates when todos or filters change
 // Prevents unnecessary re-renders when filtering large lists
 export const selectFilteredTodos = createSelector(
+  // Dependency list - redux recalculates this selector response IFF these values change
   [
     (state) => state.todos.items,
     (state) => state.filters.status,
     (state) => state.filters.category,
     (state) => state.filters.searchText,
   ],
+  // Calculation function
   (todos, status, category, searchText) => {
     return todos.filter(todo => {
       // Filter by status
@@ -196,6 +198,11 @@ export const selectFilteredTodos = createSelector(
   }
 );
 
+/**
+ * Calculate and return the statistics data for the todo data
+ * @param {*} state 
+ * @returns 
+ */
 export const selectTodoStats = (state) => {
   const todos = state.todos.items;
   return {
@@ -205,6 +212,9 @@ export const selectTodoStats = (state) => {
   };
 };
 
+/** 
+ * Return the set of categories present in the todo data
+ */
 export const selectCategories = (state) => {
   const todos = state.todos.items;
   const categories = new Set(todos.map(t => t.category));
