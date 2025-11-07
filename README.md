@@ -20,3 +20,9 @@ Incidentals provided to flesh out the demo include
 * CSS in JSX components so it doesn't look like it was drawn by a 4 year old
 
 Note: This is not intended to be an exhaustive reference.  This is a reflection of my understanding of redux after working with it for a few days.  I tried to cover a variety of cases and touch on the edges of how to think about performance in react + redux app, but the app itself is still simplistic and the scale is largely unexplored.
+
+To run the demo:
+
+Sync this repo locally
+run npm install to get the dependencies
+run npm run dev to launch locally
