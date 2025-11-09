@@ -12,7 +12,6 @@ import * as S from './styles/AddTodo.styles.js';
 export default function AddTodo() {
   // redux state integration
   const dispatch = useDispatch();
-  const existingCategories = useSelector(selectCategories);
 
   // local state -- standard react stuff
   const [text, setText] = useState('');
